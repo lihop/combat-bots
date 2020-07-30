@@ -1,0 +1,18 @@
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+
+# Mono-specific ignores
+.mono/
+mono_crash.*.json
+
+# Blender-specific ignores
+*.blend?
+
+# Scons-specific ignores
+*.sconsign.dblite
+
+# Other igonres
+.vscode/include/*
