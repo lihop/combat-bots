@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Combat Bots"
+run/main_scene="res://arenas/default_arena.tscn"
 config/icon="res://icon.png"
 
 [importer_defaults]

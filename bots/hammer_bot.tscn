@@ -10,6 +10,7 @@ points = PoolVector3Array( -1.01029, -0.0103448, -1.51034, -1.01029, -0.0103448,
 [node name="HammerBot" type="VehicleBody"]
 collision_layer = 2
 collision_mask = 3
+mass = 3.06122
 script = ExtResource( 3 )
 
 [node name="basic_chassis" parent="." instance=ExtResource( 1 )]
@@ -19,24 +20,30 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
 shape = SubResource( 1 )
 
-[node name="basic_wheel" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1 )
+[node name="WheelFrontLeft" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 1.2 )
 use_as_traction = true
-use_as_steering = true
+suspension_max_force = 120.0
+damping_compression = 0.1
+damping_relaxation = 0.2
 
-[node name="basic_wheel4" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1 )
-engine_force = 50.0
+[node name="WheelFrontRight" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 1.2 )
 use_as_traction = true
+suspension_max_force = 120.0
+damping_compression = 0.1
+damping_relaxation = 0.2
 
-[node name="basic_wheel2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1 )
-engine_force = 5.0
+[node name="WheelRearLeft" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -1.2 )
 use_as_traction = true
-use_as_steering = true
+suspension_max_force = 120.0
+damping_compression = 0.1
+damping_relaxation = 0.2
 
-[node name="basic_wheel3" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
-engine_force = 5.0
+[node name="WheelRearRight" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1, 0.5, -1.2 )
 use_as_traction = true
-use_as_steering = true
+suspension_max_force = 120.0
+damping_compression = 0.1
+damping_relaxation = 0.2

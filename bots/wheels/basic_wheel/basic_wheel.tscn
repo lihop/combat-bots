@@ -3,3 +3,8 @@
 [ext_resource path="res://bots/wheels/basic_wheel/models/basic_wheel.glb" type="PackedScene" id=1]
 
 [node name="basic_wheel" instance=ExtResource( 1 )]
+wheel_radius = 0.4
+wheel_rest_length = 0.07
+wheel_friction_slip = 5.0
+suspension_travel = 0.07
+suspension_stiffness = 200.0
