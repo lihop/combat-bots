@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://bots/weapons/hammer/models/hammer.glb" type="PackedScene" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=2]
+points = PoolVector3Array( -0.1693, 2.24084, -0.19185, -0.1693, 2.24084, 0.196473, -0.1693, 2.25938, -0.728745, -0.1693, 2.25938, 0.733512, -0.1693, 2.81453, -0.728745, -0.1693, 2.81453, 0.733512, 0.148937, 2.8216, -0.12079, 0.148937, 2.8216, 0.751394, 0.164687, 2.23932, 0.1975, 0.165094, 2.2573, -0.734401, 0.165094, 2.2573, 0.739168, 0.167912, 2.8216, -0.746774, 0.167912, 2.8216, 0.751394, 0.16865, 2.2325, -0.1975, 0.1693, 2.80485, -0.121792, 0.1693, 2.80485, 0.757486 )
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -0.1693, 0.0522522, -0.191967, -0.1693, 0.0522522, 0.196734, -0.1693, 2.16193, -0.191967, -0.1693, 2.16193, 0.196734, 0.158671, 2.2573, 0.214265, 0.164462, 0.0480943, 0.1975, 0.164495, 2.1663, 0.1975, 0.168546, 0.0222207, -0.1975, 0.16858, 2.19217, -0.1975, 0.1693, 1.41285, -0.0262241 )
+
+[node name="Hammer" instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 3
+mass = 2.04082
+
+[node name="CollisionShape2" type="CollisionShape" parent="." index="1"]
+shape = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="2"]
+shape = SubResource( 1 )

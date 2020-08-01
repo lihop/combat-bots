@@ -23,10 +23,6 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("bot_weapon_primary"):
-		if _primary_weapon:
-			_primary_weapon.fire()
-	
 	# Handle steering. For now just use tank steering.
 	# Left stick controls left wheels.
 	# Right stick controls right wheels.

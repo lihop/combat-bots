@@ -11,8 +11,8 @@ dest_files=[ "res://.import/hammer.glb-1314d396c354670c9023c83569db20d3.scn" ]
 
 [params]
 
-nodes/root_type="Spatial"
-nodes/root_name="Scene Root"
+nodes/root_type="RigidBody"
+nodes/root_name="Hammer"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0

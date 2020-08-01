@@ -1,47 +1,66 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://bots/chassis/basic_chassis/models/basic_chassis.scn" type="PackedScene" id=1]
 [ext_resource path="res://bots/wheels/basic_wheel/basic_wheel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://bots/common/scripts/bot.gd" type="Script" id=3]
+[ext_resource path="res://bots/weapons/Hammer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://bots/hammer_bot.gd" type="Script" id=5]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( -1.01029, -0.0103448, -1.51034, -1.01029, -0.0103448, 1.51034, -1.01029, 0.113793, -1.51034, -1.01029, 0.113793, 1.51034, 1.01724, -0.0103448, -1.51034, 1.01724, -0.0103448, 1.51034, 1.01724, 0.113793, -1.51034, 1.01724, 0.113793, 1.51034 )
 
-[node name="HammerBot" type="VehicleBody"]
+[node name="HammerBot" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="Hammer" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.540537, 0 )
+continuous_cd = true
+
+[node name="HingeJoint" type="HingeJoint" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.5, 0 )
+nodes/node_a = NodePath("../Chassis")
+nodes/node_b = NodePath("../Hammer")
+angular_limit/enable = true
+angular_limit/lower = -75.0
+motor/enable = true
+motor/target_velocity = -1.5
+motor/max_impulse = 5.0
+
+[node name="Chassis" type="VehicleBody" parent="."]
 collision_layer = 2
 collision_mask = 3
 mass = 3.06122
 script = ExtResource( 3 )
 
-[node name="basic_chassis" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
+[node name="CollisionShape" type="CollisionShape" parent="Chassis"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0 )
 shape = SubResource( 1 )
 
-[node name="WheelFrontLeft" parent="." instance=ExtResource( 2 )]
+[node name="basic_chassis" parent="Chassis" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0 )
+
+[node name="WheelFrontLeft" parent="Chassis" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 1.2 )
 use_as_traction = true
 suspension_max_force = 120.0
 damping_compression = 0.1
 damping_relaxation = 0.2
 
-[node name="WheelFrontRight" parent="." instance=ExtResource( 2 )]
+[node name="WheelFrontRight" parent="Chassis" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 1.2 )
 use_as_traction = true
 suspension_max_force = 120.0
 damping_compression = 0.1
 damping_relaxation = 0.2
 
-[node name="WheelRearLeft" parent="." instance=ExtResource( 2 )]
+[node name="WheelRearLeft" parent="Chassis" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -1.2 )
 use_as_traction = true
 suspension_max_force = 120.0
 damping_compression = 0.1
 damping_relaxation = 0.2
 
-[node name="WheelRearRight" parent="." instance=ExtResource( 2 )]
+[node name="WheelRearRight" parent="Chassis" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1, 0.5, -1.2 )
 use_as_traction = true
 suspension_max_force = 120.0
