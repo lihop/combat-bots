@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "MeshInstance",
+"class": "Decal",
+"language": "GDScript",
+"path": "res://addons/decalco/src/Decal.gd"
+} ]
 _global_script_class_icons={
-
+"Decal": "res://addons/decalco/icons/icon_decal.svg"
 }
 
 [application]
@@ -18,6 +23,10 @@ _global_script_class_icons={
 config/name="Combat Bots"
 run/main_scene="res://arenas/default_arena.tscn"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "decalco" )
 
 [importer_defaults]
 
