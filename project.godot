@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Decal",
 "language": "GDScript",
 "path": "res://addons/decalco/src/Decal.gd"
+}, {
+"base": "Camera",
+"class": "ZoomingCamera",
+"language": "GDScript",
+"path": "res://cameras/zooming_camera.gd"
 } ]
 _global_script_class_icons={
-"Decal": "res://addons/decalco/icons/icon_decal.svg"
+"Decal": "res://addons/decalco/icons/icon_decal.svg",
+"ZoomingCamera": ""
 }
 
 [application]
